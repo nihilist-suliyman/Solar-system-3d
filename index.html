@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Cosmic Scale — Solar System, Milky Way & Observable Universe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.169.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.169.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="canvas-container"></div>
+  <div id="labels-container"></div>
+
+  <div class="hud-layer">
+    <header class="top-bar">
+      <div class="brand-status">
+        <span class="brand-title" id="scale-badge">SCALE 01 · SOLAR SYSTEM</span>
+        <span class="brand-sub" id="distance-readout">Zoom: 12.0 AU (Local)</span>
+      </div>
+
+      <nav class="top-pills">
+        <button class="pill" data-jump="solar">Solar System</button>
+        <button class="pill" data-jump="milkyway">Milky Way</button>
+        <button class="pill" data-jump="universe">Observable Universe</button>
+      </nav>
+
+      <div class="top-right">
+        <button class="pill" id="btn-reset">Reset</button>
+      </div>
+    </header>
+
+    <aside class="briefing-panel" id="info-panel">
+      <div class="panel-tag" id="info-category">COSMIC EXPLORER</div>
+      <h1 class="info-title" id="info-title">Solar System</h1>
+      <p class="info-subtitle" id="info-subtitle">Drag to orbit · Pinch/scroll to zoom across scales · Tap an object</p>
+      <p class="info-desc" id="info-desc">
+        Zoom out past the outer planets to transition into the Milky Way spiral galaxy, and keep zooming out to reveal galaxy clusters across the observable universe.
+      </p>
+
+      <div class="divider"></div>
+
+      <div class="meta-grid" id="info-meta">
+        <div class="meta-row"><span class="k">SCALE</span><span class="v">~10¹³ m (Light-hours)</span></div>
+        <div class="meta-row"><span class="k">CORE</span><span class="v">G2V Main-Sequence Star (Sun)</span></div>
+        <div class="meta-row"><span class="k">INTERACTION</span><span class="v">Tap / Click any labeled body</span></div>
+      </div>
+    </aside>
+
+    <footer class="bottom-dock">
+      <div class="scale-bar-wrap">
+        <span class="scale-label">SOLAR</span>
+        <input type="range" id="zoom-slider" min="5" max="46" step="0.1" value="12" aria-label="Cosmic Zoom Scale" />
+        <span class="scale-label">UNIVERSE</span>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
